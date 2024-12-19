@@ -91,6 +91,12 @@ func (t DateTime) MarshalJSON() ([]byte, error) {
 	return []byte(fmt.Sprintf(`"%s"`, t.ToDateTimeString())), nil
 }
 
+// GormDataType implements the interface GormDataTypeInterface for Carbon struct.
+// 实现 GormDataTypeInterface 接口
+func (c DateTime) GormDataType() string {
+	return "time"
+}
+
 // UnmarshalJSON implements the interface json.Unmarshal for DateTime struct.
 // 实现 UnmarshalJSON 接口
 func (t *DateTime) UnmarshalJSON(b []byte) error {
