@@ -38,6 +38,12 @@ func (c Carbon) Value() (driver.Value, error) {
 	return c.StdTime(), nil
 }
 
+// GormDataType implements the interface GormDataTypeInterface for Carbon struct.
+// 实现 GormDataTypeInterface 接口
+func (c Carbon) GormDataType() string {
+	return "time"
+}
+
 // MarshalJSON implements the interface json.Marshal for Carbon struct.
 // 实现 json.Marshaler 接口
 func (c Carbon) MarshalJSON() ([]byte, error) {
